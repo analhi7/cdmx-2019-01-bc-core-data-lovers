@@ -45,7 +45,7 @@ inicio.onclick = () => {
   document.getElementById("fondo-de-lista-de-campeones").style.display = 'block';
 };
 
-// función del menú desplegable donde se encuentran los roles para filtrar 
+ //función del menú desplegable donde se encuentran los roles para filtrar 
 
 menu.onmouseover = () => {
   document.getElementById("mySidenav").style.width = "75%";
@@ -104,7 +104,7 @@ const printCharacterSheet = (datos) => {
   showFirstChampionList.innerHTML = "";
   printRolTitle.innerHTML = "";
   datos.forEach(champ => {
-    let nameList = `<div id="${champ.id}" class="champInfo"><div class="nameList" id='ImageSoloCharacter'>
+    let nameList = `<div id="${champ.id}" class="champInfo"><div class="nameList" id="ImageSoloCharacter">
    <img class="splashPresentation" src="${champ.splash}">
    <h1 id= "nombreSolo" >${champ.name}</h1> <p id="tituloSolo">${champ.title}</p></div>
    <div id="statsInfo1" class="nameList"><div class="stats"><p>Attack: ${champ.attack}</p><p>Defense: ${champ.defense}</p>
