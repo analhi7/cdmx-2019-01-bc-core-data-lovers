@@ -765,9 +765,8 @@ justify-content:center;
   #showFirstChampionList{
     margin-top: 50px;
     display: flex;
-    flex-wrap: wrap;37%
+    flex-wrap: wrap;37%;
     justify-content: center;
-   
     
   }
   
@@ -800,4 +799,3 @@ justify-content:center;}
   padding-left: 2%;
   margin-bottom: -8%;
   margin-top: 8%;}
-}
