@@ -1,8 +1,9 @@
+
 /* Convierte la base de datos en una variable*/
-const dataLol = window.LOL.data;
+//const dataLol = window.LOL.data;
 
 //Trae el resultado de la función filtrado de data.js
-const datos = window.lol.iterarData(dataLol)
+//const datos = window.lol.iterarData(dataLol)
 
 /*trae el div de nombre "es" para identificarlo e imprimirlo ahí*/
 const showFirstChampionList = document.getElementById('showFirstChampionList')
@@ -95,7 +96,7 @@ const print = (datos) => {
     })
   }
 };
-print(datos)
+
 
 
 //---------------------2do Print------------------------------------------------------//
@@ -199,3 +200,18 @@ statsAverage.addEventListener('click', () => {
   printRolTitle.innerHTML= "Miscellaneous"
   showFirstChampionList.innerHTML =` <div class="nameList"><div class="rolPersonajes"> Average Attack: <br> ${showAttackAverage}</div></div>`
 })
+
+
+
+const url= './data/lol/lol.json'
+
+fetch(url)
+  .then(resp => resp.json())
+  .then(json => json.data)
+  .then(data =>{
+    lolData = window.lol.iterarData(data)
+    console.log(lolData);
+    return lolData;
+  })
+  .then(toPrint => print(lolData))
+  

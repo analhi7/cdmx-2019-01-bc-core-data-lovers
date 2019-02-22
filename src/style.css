@@ -29,9 +29,9 @@ body {
 
 
 #welcomeMssg{
-  background-image: url(http://www.lol-wallpapers.com/wp-content/uploads/2017/01/Summoners-Rift-4-League-of-Legends-Artwork-Wallpaper-lol-1024x688.jpg);
+  background-image: url(http://www.lol-wallpapers.com/wp-content/uploads/2017/01/Summoners-Rift-2-League-of-Legends-Artwork-Wallpaper-lol-1024x688.jpg);
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: static;
   padding-top: 20%;
   padding-bottom: 20%;
