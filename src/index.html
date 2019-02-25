@@ -16,8 +16,11 @@
   <!--primera pantalla-->
   <section id="inicio">
     <div id="primera-pantalla">
-      <figure id="logo-lol"></figure>
-      <span class="blinke"> Click anywhere...</span>
+        <div id="welcomeMssg">
+            <h1 class="welcome" >Welcome to the Summoner's Rift</h1>
+          <h2 class="welcome"> Find your champion info or search them by trait</h2></div>
+         
+      
 
       <!-- <button id="inicio" class>Bienvenidos</button>-->
     </div>
@@ -26,26 +29,33 @@
 
   <!--lista de campeones-->
   <section id="fondo-de-lista-de-campeones" class="hidden">
-    <header>
-      <i id="menu" class="fas fa-bars" onclick="openNav()"></i>
+
+    <header id="mainHeader" class="closeMenu">
+      <i id="menu" class="fas fa-bars"></i> <div id="searchDiv"><i id= "iconGlass" class="fas fa-search"></i><input type="searchInput" id="searchInput" placeholder="Find a Champion" ></div>
+
     </header>
+ 
     <div id="mySidenav" class="sidenav">
-      <a class="closebtn" id="cerrar">&times;</a>
-      <p class="titulo">Filtrar Campeones</p>
-      <p class="titulo">ROL</p>
-
-      <a id="Support" class="rolPersonajes" href="#">Soporte</a>
-      <a id="Assassin" class="rolPersonajes" href="#">Asesino</a>
-      <a id="Marksman" class="rolPersonajes" href="#">Tirador</a>
-      <a id="Fighter" class="rolPersonajes" href="#">Luchador</a>
-      <a id="Mage" class="rolPersonajes" href="#">Mago</a>
-      <a id="Tank" class="rolPersonajes" href="#">Tanque</a>
-      <a id="byname" class="rolPersonajes" href="#">Por Nombre</a>
-
+      <a id="home" href="#"><i class="fas fa-home"></i>HOME</a>
+      <p class="titulo">ROL FILTER</p>
+      <a id="Support" class="rolPersonajes" href="#">Support</a>
+      <a id="Assassin" class="rolPersonajes" href="#">Assassin</a>
+      <a id="Marksman" class="rolPersonajes" href="#">Marksman</a>
+      <a id="Fighter" class="rolPersonajes" href="#">Figther</a>
+      <a id="Mage" class="rolPersonajes" href="#">Mage</a>
+      <a id="Tank" class="rolPersonajes" href="#">Tank</a>
+      <p class="titulo">FILTER BY DIFFICULTY</p>
+      <a id="difficultyAsc" class="rolPersonajes" href="#">1-10</a>
+      <a id="difficultyDsc" class="rolPersonajes" href="#">10-1</a>
+      <p class="titulo">Miscellaneous</p> 
+      <a id="statsAverage" class="rolPersonajes" href="#">Stats</a>
     </div>
-    <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>-->
 
-    <div id="es"></div>
+    <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>-->
+<div  class="closeMenu"><h1>CHAMPIONS</h1></div>
+<div id="titleChampions" class="closeMenu"><h1 id="rolTitle" class>CHAMPIONS</h1></div>
+    <div id="showFirstChampionList" class="closeMenu"></div>
+    <footer></footer>
   </section>
 <section id="printed">
 
@@ -53,9 +63,9 @@
 
 </section>
 
-  <script src="./data/lol/lol.js"></script>
-  <script src="main.js"></script>
+ <!-- <script src="./data/lol/lol.js"></script>-->
   <script src="data.js"></script>
+  <script src="main.js"></script>
 
 
 </body>
