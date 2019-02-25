@@ -4,7 +4,7 @@
 
 //Trae el resultado de la función filtrado de data.js
 //const datos = window.lol.iterarData(dataLol)
-
+//let dataLol = [];
 /*trae el div de nombre "es" para identificarlo e imprimirlo ahí*/
 const showFirstChampionList = document.getElementById('showFirstChampionList')
 
@@ -13,6 +13,7 @@ const rol = document.getElementsByClassName("rolPersonajes");
 
 //Trae cada personaje para la iteración por clase
 const characterFromList = document.getElementsByClassName("nameList");
+
 
 
 //almacena en variable los id del primer evento de cambio de pantalla, la interacción para abrir y cerrar el menú
@@ -83,6 +84,9 @@ home.onclick = () => {
 const print = (datos) => {
   showFirstChampionList.innerHTML = "";
   datos.forEach(champ => {
+    console.log('img', champ.img);
+    console.log('name', champ.name);
+    console.log('splach', champ.splash);   
     let nameList = `<div id="${champ.id}" class="nameList"><img class="lolIcons" src="${champ.img}"><img class="bigImg" src="${champ.splash}"><div id="letras"><h1 id= "nombre" >${champ.name}</h1> <p id="titulo">${champ.title}</p></div></div>`;
     showFirstChampionList.insertAdjacentHTML("beforeend", nameList);
   })
@@ -102,18 +106,57 @@ const print = (datos) => {
 //---------------------2do Print------------------------------------------------------//
 //función que imprime la información completa del personaje 
 const printCharacterSheet = (datos) => {
+ 
   showFirstChampionList.innerHTML = "";
   printRolTitle.innerHTML = "";
   datos.forEach(champ => {
-    let nameList = `<div id="${champ.id}" class="champInfo"><div class="nameList" id="ImageSoloCharacter">
-   <img class="splashPresentation" src="${champ.splash}">
-   <h1 id= "nombreSolo" >${champ.name}</h1> <p id="tituloSolo">${champ.title}</p></div>
-   <div id="statsInfo1" class="nameList"><div class="stats"><p>Attack: ${champ.attack}</p><p>Defense: ${champ.defense}</p>
-   <p>Magic: ${champ.magic}</p><p>Difficulty: ${champ.difficulty}</p></div></div>
-   <div id="allStats" class="nameList"><div id="statsInfo2" class="stats"><h2>Stats</h2><p>Hp:<br>${champ.hp}</p><p>Hp per level:<br>${champ.hpperlevel}</p><p>Hp regeneration:<br>${champ.hpregen}</p><p>Hp regen per level:<br>${champ.hpregenperlevel}</p>
-   <p>Mp:<br>${champ.mp}</p><p>Mp per level:<br>${champ.mpperlevel}</p><p>Mp regeneration:<br>${champ.mpregen}</p><p>Mp regen per level:<br>${champ.mpregenperlevel}</p></div>
-   <div id="statsInfo3" class="stats" class="statsOrder"><p>Movespeed:<br>${champ.movespeed}</p> <p>Armor:<br>${champ.armor}</p><p>Armor per level:<br>${champ.armorperlevel}</p><p>Attack Range:<br>${champ.attackrange}</p><p>Attack Damage:<br>${champ.attackdamage}</p><p>Attack Damage per level:<br>${champ.attackdamageperlevel}</p></div></div>  <h3 id="blurb" class="nameList">${champ.blurb}</h3></div></div>`;
-    showFirstChampionList.insertAdjacentHTML("beforeend", nameList);
+    let nameList = `
+<div id="${champ.id}" class="champInfo">
+      <div class="nameList">
+       <img class="splashPresentation" src="${champ.splash}">
+       <h1 id= "nombre" >${champ.name}</h1> 
+       <p id="titulo">${champ.title}</p>
+      </div> 
+   
+   <div class="nameList">
+      <p id="title" class="rolTitle">ROL</p>
+     <h3 class="rolTitle">${champ.tags}</h3>
+   </div>
+
+   <div id="statsInfo1" class="nameList">
+    <div class="stats">
+      <p>Attack: ${champ.attack}</p><p>Defense: ${champ.defense}</p>
+      <p>Magic: ${champ.magic}</p><p>Difficulty: ${champ.difficulty}</p>
+     </div>
+   </div>
+
+   <div id="allStats" class="nameList">
+     <div id="statsInfo2" class="stats">
+        <h2>Stats</h2><p>Hp:<br>${champ.hp}</p>
+        <p>Hp per level:<br>${champ.hpperlevel}</p>
+        <p>Hp regeneration:<br>${champ.hpregen}</p>
+        <p>Hp regen per level:<br>${champ.hpregenperlevel}</p>
+        <p>Mp:<br>${champ.mp}</p>
+        <p>Mp per level:<br>${champ.mpperlevel}</p>
+        <p>Mp regeneration:<br>${champ.mpregen}</p>
+        <p>Mp regen per level:<br>${champ.mpregenperlevel}</p>
+     </div>
+     <div id="statsInfo3" class="stats">
+      <p>Movespeed:<br>${champ.movespeed}</p> 
+      <p>Armor:<br>${champ.armor}</p>
+      <p>Armor per level:<br>${champ.armorperlevel}</p>
+      <p>Attack Range:<br>${champ.attackrange}</p>
+      <p>Attack Damage:<br>${champ.attackdamage}</p>
+      <p>Attack Damage per level:<br>${champ.attackdamageperlevel}</p>
+     </div>
+  </div>
+
+  <div id="blurb"> 
+   <h3  class="nameList">${champ.blurb}</h3>
+   </div>
+  </div>`;
+  
+   showFirstChampionList.insertAdjacentHTML("beforeend", nameList);
   });
 }
 
@@ -137,7 +180,7 @@ const selectByRol = () => {
       printRolTitle.innerHTML = "";
       printRolTitle.insertAdjacentHTML("beforeend", rolId);
 
-      const arrayRolesFiltered = window.lol.filtroDataRoles(rolId, datos);
+      const arrayRolesFiltered = window.lol.filtroDataRoles(rolId, dataLol);
       document.getElementById("welcomeMssg").style.display = 'none';
       printRolTitle.style.display = "block";
       print(arrayRolesFiltered);
@@ -208,10 +251,14 @@ const url= './data/lol/lol.json'
 fetch(url)
   .then(resp => resp.json())
   .then(json => json.data)
-  .then(data =>{
-    lolData = window.lol.iterarData(data)
-    console.log(lolData);
-    return lolData;
+  .then(data => window.lol.iterarData(data))
+  .then(arrData =>{ 
+   localStorage.setItem("nombre",JSON.stringify(arrData))
+    //dataLol= arrData
+    print(arrData)
+
   })
-  .then(toPrint => print(lolData))
+  //.then(toPrint => print(toPrint))
+  
+.catch(err=>console.error(err))
   

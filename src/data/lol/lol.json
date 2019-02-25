@@ -1302,6 +1302,7 @@
       "key": "28",
       "name": "Evelynn",
       "title": "the Widowmaker",
+      "img":"https://www.masterypoints.com/assets/img/lol/champion_icons/Evelynn.png",
       "splash": "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Evelynn_0.jpg",
       "blurb": "Swift and lethal, Evelynn is one of the most deadly - and expensive - assassins in all of Runeterra. Able to merge with the shadows at will, she patiently stalks her prey, waiting for the right moment to strike. While Evelynn is clearly not entirely ...",
       "info": {
@@ -2393,7 +2394,7 @@
       "name": "Jinx",
       "title": "the Loose Cannon",
       "img": "https://www.masterypoints.com/assets/img/lol/champion_icons/Jinx.png",
-      "splash": "http://www.lol-wallpapers.com/wp-content/uploads/2018/12/Odyssey-Jinx-Splash-Art-HD-4k-6k-Wallpaper-Background-Official-Art-Artwork-League-of-Legends-lol.jpg",
+      "splash": "http://www.lol-wallpapers.com/wp-content/uploads/2018/12/Leona-Jinx-Draven-by-Kornelia-Miko%C5%9B-Rivienn-HD-Wallpaper-Background-Fan-Art-Artwork-League-of-Legends-lol.jpg",
       "blurb": "Jinx lives to wreak havoc without a thought for the consequences, leaving a trail of mayhem and panic in her wake. A manic and impulsive criminal, she despises nothing more than boredom, and gleefully brings her own volatile brand of pandemonium to ...",
       "info": {
         "attack": 9,
@@ -3065,7 +3066,7 @@
       "name": "Lee Sin",
       "title": "the Blind Monk",
       "img": "https://www.masterypoints.com/assets/img/lol/champion_icons/LeeSin.png",
-      "splash": "http://www.lol-wallpapers.com/wp-content/uploads/2018/05/Playmaker-Lee-Sin-Sweeper-Rammus-Splash-Art-HD-Wallpaper-Background-Official-Art-Artwork-League-of-Legends-lol-1.jpg",
+      "splash": "https://static2.lolwallpapers.net/2017/03/58da98ee8cc58.png",
       "blurb": "As a young teen, Lee Sin was intent on becoming a summoner. His will and dedication were unmatched by any of his peers, and his skill drew the attention of Reginald Ashram, the League's High Councilor at the time. While studying at the Arcanum Majoris,...",
       "info": {
         "attack": 8,
