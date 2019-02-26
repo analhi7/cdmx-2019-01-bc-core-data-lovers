@@ -26,22 +26,19 @@ body {
   margin-top: 50px;
 }
 
-
+.hidden {
+  display: none;
+}
 
 #welcomeMssg{
-  background-image: url(http://www.lol-wallpapers.com/wp-content/uploads/2017/01/Summoners-Rift-2-League-of-Legends-Artwork-Wallpaper-lol-1024x688.jpg);
+  
   width: 100%;
-  height: 100vh;
-  position: static;
-  padding-top: 20%;
-  padding-bottom: 20%;
-  padding-left: 5px;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  padding-top: 4%;
+  
   
 }
 .welcome{
-  font-size: 140%;
+  font-size: 100%;
   background: -webkit-linear-gradient(left top, whitesmoke, yellow);
   background: linear-gradient(to bottom right, whitesmoke, yellow);
   -webkit-background-clip: text;  
@@ -80,20 +77,45 @@ body {
 
   
 }
+.role{
+  margin: 2%;
+  background-color: rgb(1, 10, 19);
+  padding: 5%;
+  border: 3px solid rgba(120, 90, 40);
+  background-size: 100%;
+  color: white;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 85%;
 
+}
 #titleChampions{
-  margin-top: 10px;
+  margin-top: -1%;
   color:white;
   display: flex;
   justify-content: center;
 }
-#rolTitle{
+rolTitle{
   margin-top: 10%;
   margin-bottom: 7%;
   color:white;
   display: flex;
   justify-content: center;
+  margin-left: 7%;
+  margin-bottom: 7%;
   }
+
+.champInfo{
+  background-color: rgb(1, 10, 19);
+  padding: 5%;
+  border: 3px solid rgba(120, 90, 40);
+  background-size: 100%;
+  color: white;
+  width: 86%;
+  margin-right: 0%;
+  margin-left: 1.6%;
+}
 
 #logo-lol {
 display:flex;
@@ -101,8 +123,8 @@ justify-content: center;
 }
 
 figure img{
-  margin-top: 230px;
-  width: 90%;
+  margin-top: 61%;
+  width: 103%;
   height: 80%;
 }
 
@@ -165,9 +187,7 @@ figure img{
   margin-left: 4%;
   margin-bottom: -2%;
 }
-.hidden {
-  display: none;
-}
+
 
 #letras {
   display: inline-block;
@@ -186,7 +206,7 @@ figure img{
 }
 #nombre {
 
-  font-size: 20px;
+  font-size: 175%;
   color: white;
   margin: 2%;
   width: max-content;
@@ -194,7 +214,7 @@ figure img{
 
 
 #titulo{
-  font-size: 20px;
+  font-size: 151%;
   color: rgba(201, 170, 113);
   margin: 2%;
 }

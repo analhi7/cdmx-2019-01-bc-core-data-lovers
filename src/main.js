@@ -111,13 +111,12 @@ const printCharacterSheet = (datos) => {
   datos.forEach(champ => {
     let nameList = `
 <div id="${champ.id}" class="champInfo">
-      <div class="nameList">
        <img class="splashPresentation" src="${champ.splash}">
        <h1 id= "nombre" >${champ.name}</h1> 
        <p id="titulo">${champ.title}</p>
       </div> 
    
-   <div class="nameList">
+   <div class="role">
       <p id="title" class="rolTitle">ROL</p>
      <h3 class="rolTitle">${champ.tags}</h3>
    </div>
@@ -222,7 +221,7 @@ const difficultyAsc = () => {
       printRolTitle.innerHTML = "Lower to Higher";
       const dataLocal= JSON.parse(localStorage.getItem('nombre'))
       const diffA = window.lol.sortByDifficulty(1,dataLocal);
-      document.getElementById("welcomeMssg").style.display = 'none';
+      //document.getElementById("welcomeMssg").style.display = 'none';
       printRolTitle.style.display= "block";
       print(diffA);
     })};
