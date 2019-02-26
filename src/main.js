@@ -61,13 +61,15 @@ cerrar.onmouseover = () => {
   document.getElementById("mySidenav").style.width = "0px";
 };
 // Link que lleva a la home
+const homeOne =() =>{
 home.onclick = () => {
-  print(datos);
+  const dataLocal= JSON.parse(localStorage.getItem('nombre'))
+  print(dataLocal);
   document.getElementById("mySidenav").style.width = "0px";
   printRolTitle.style.display = "none";
   welcome.style.display = 'block';
 
-
+}
 }
 
 /* ----------------------------------------------*/
@@ -83,10 +85,7 @@ home.onclick = () => {
 // función que imprime la primera iteración que da la lista completa de campeones
 const print = (datos) => {
   showFirstChampionList.innerHTML = "";
-  datos.forEach(champ => {
-    console.log('img', champ.img);
-    console.log('name', champ.name);
-    console.log('splach', champ.splash);   
+  datos.forEach(champ => {   
     let nameList = `<div id="${champ.id}" class="nameList"><img class="lolIcons" src="${champ.img}"><img class="bigImg" src="${champ.splash}"><div id="letras"><h1 id= "nombre" >${champ.name}</h1> <p id="titulo">${champ.title}</p></div></div>`;
     showFirstChampionList.insertAdjacentHTML("beforeend", nameList);
   })
@@ -112,13 +111,12 @@ const printCharacterSheet = (datos) => {
   datos.forEach(champ => {
     let nameList = `
 <div id="${champ.id}" class="champInfo">
-      <div class="nameList">
        <img class="splashPresentation" src="${champ.splash}">
        <h1 id= "nombre" >${champ.name}</h1> 
        <p id="titulo">${champ.title}</p>
       </div> 
    
-   <div class="nameList">
+   <div class="role">
       <p id="title" class="rolTitle">ROL</p>
      <h3 class="rolTitle">${champ.tags}</h3>
    </div>
@@ -178,9 +176,10 @@ const selectByRol = () => {
       let rolId = rol[i].id;
       document.getElementById("mySidenav").style.width = "0%";
       printRolTitle.innerHTML = "";
+      const dataLocal= JSON.parse(localStorage.getItem('nombre'))
       printRolTitle.insertAdjacentHTML("beforeend", rolId);
 
-      const arrayRolesFiltered = window.lol.filtroDataRoles(rolId, dataLol);
+      const arrayRolesFiltered = window.lol.filtroDataRoles(rolId, dataLocal);
       document.getElementById("welcomeMssg").style.display = 'none';
       printRolTitle.style.display = "block";
       print(arrayRolesFiltered);
@@ -193,7 +192,8 @@ const searchByName = () => {
   searchInput.addEventListener("keyup", () => {
     let searchValue = searchInput.value;
     printRolTitle.innerHTML = "";
-    const showSearch = window.lol.filterByName(searchValue, datos);
+    const dataLocal= JSON.parse(localStorage.getItem('nombre'))
+    const showSearch = window.lol.filterByName(searchValue, dataLocal);
     document.getElementById("welcomeMssg").style.display = 'none';
     printRolTitle.style.display = "block";
     print(showSearch);
@@ -219,8 +219,9 @@ searchByName();
 const difficultyAsc = () => {
     buttonDifficultyAsc.addEventListener('click', () => {
       printRolTitle.innerHTML = "Lower to Higher";
-      const diffA = window.lol.sortByDifficulty(1,datos);
-      document.getElementById("welcomeMssg").style.display = 'none';
+      const dataLocal= JSON.parse(localStorage.getItem('nombre'))
+      const diffA = window.lol.sortByDifficulty(1,dataLocal);
+      //document.getElementById("welcomeMssg").style.display = 'none';
       printRolTitle.style.display= "block";
       print(diffA);
     })};
@@ -229,36 +230,37 @@ const difficultyAsc = () => {
     const difficultyDsc = () => {
       buttonDifficultyDsc.addEventListener('click', () => {
         printRolTitle.innerHTML = "Higher to Lower";
-        const diffD = window.lol.sortByDifficulty(-1,datos);
+        const dataLocal= JSON.parse(localStorage.getItem('nombre'))
+        const diffD = window.lol.sortByDifficulty(-1,dataLocal);
         document.getElementById("welcomeMssg").style.display = 'none';
         printRolTitle.style.display= "block";
         print(diffD);
       })};
     difficultyDsc();
 
-
+const statsOrder=() => {
 statsAverage.addEventListener('click', () => {
   showFirstChampionList.innerHTML ="";
-  const showAttackAverage = window.lol.averageAttack(datos);
+  const dataLocal= JSON.parse(localStorage.getItem('nombre'))
+  const showAttackAverage = window.lol.averageAttack(dataLocal);
   printRolTitle.innerHTML= "Miscellaneous"
   showFirstChampionList.innerHTML =` <div class="nameList"><div class="rolPersonajes"> Average Attack: <br> ${showAttackAverage}</div></div>`
-})
-
+})};
 
 
 const url= './data/lol/lol.json'
-
 fetch(url)
-  .then(resp => resp.json())
-  .then(json => json.data)
-  .then(data => window.lol.iterarData(data))
-  .then(arrData =>{ 
-   localStorage.setItem("nombre",JSON.stringify(arrData))
-    //dataLol= arrData
-    print(arrData)
-
-  })
-  //.then(toPrint => print(toPrint))
-  
-.catch(err=>console.error(err))
+.then(resp => resp.json())
+.then(json => json.data)
+.then (data => window.lol.iterarData(data))
+.then(arrData => {
+  localStorage.setItem('nombre', JSON.stringify(arrData))
+  print(arrData)
+})
+.then(selectbyrole => selectByRol(selectbyrole))
+.then(orderAsc=> difficultyAsc(orderAsc))
+.then(orderDes=> difficultyDsc(orderDes))
+.then(orderStats => statsOrder(orderStats))
+.then(home=> homeOne(home))
+//catch(err=> console.err(err));
   
